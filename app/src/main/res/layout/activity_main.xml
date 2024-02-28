@@ -10,63 +10,75 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
         android:text="Calcular Notas"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Nombre"
+        android:id="@+id/nombre_estudiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Nombre"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="nombre del estudiante"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <EditText
-        android:id="@+id/Notas"
+        android:id="@+id/agregar_nota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:hint="ingrese la nota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Nombre" />
+        app:layout_constraintTop_toBottomOf="@id/nombre_estudiante" />
 
     <EditText
-        android:id="@+id/Porcentajes"
+        android:id="@+id/porcentaje_nota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:hint= "ingrese el porcentaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Notas"/>
+        app:layout_constraintTop_toBottomOf="@id/agregar_nota" />
 
     <Button
-        android:id="@+id/Retornar"
+        android:id="@+id/siguiente_nota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Retornar"
+        android:text="Agregar nota"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Porcentajes"
+        app:layout_constraintTop_toBottomOf="@id/porcentaje_nota"
         />
 
     <Button
         android:id="@+id/Finalizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:text="Finalizar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/Retornar"
+        app:layout_constraintStart_toEndOf="@id/siguiente_nota"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Retornar"/>
+        app:layout_constraintTop_toBottomOf="@id/siguiente_nota" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var Reiniciar : Button
 
 
-    var porcentajeAcumulado  = 0
+    private var porcentajeAcumulado  = 0
 
     val listaDePorcentaje: MutableList<Int> = mutableListOf()
 
@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
 
         Reiniciar.setOnClickListener {
 
-            vistaNotaFinal.visibility = View.GONE
+            vistaNotaFinal.visibility = View.VISIBLE
 
-            vistaPromedioFinal.visibility = View.GONE
+            vistaPromedioFinal.visibility = View.VISIBLE
 
-            Finalizar.visibility = View.GONE
+            Finalizar.visibility = View.INVISIBLE
 
-            Reiniciar.visibility = View.GONE
+            Reiniciar.visibility = View.INVISIBLE
 
             nombreIngresado.text.clear()
             notasIngresadas.text.clear()
@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             vistaPromedioFinal.text = ""
             vistaNotaFinal.text = ""
             porcentajeAcumulado = 0
+
         }
 
         Finalizar.setOnClickListener {
@@ -70,13 +71,14 @@ class MainActivity : AppCompatActivity() {
 
             vistaPromedioFinal.visibility = View.VISIBLE
 
-            vistaNotaFinal.text = "nota final : " + porcentajeAcumulado
+            vistaNotaFinal.text = "nota final : " + notafinal()
 
             vistaPromedioFinal.text = "promedio : " + calcularpromedio()
         }
 
 
         siguienteNota.setOnClickListener {
+            Finalizar.visibility = View.VISIBLE
 
             val nombre = nombreIngresado.text.toString()
             val nota = notasIngresadas.text.toString()
@@ -127,12 +129,12 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun validarNota(nota : Double) : Boolean{
-        return nota >= 0 && nota <= 5
+        return (nota >= 0.0 && nota <= 5.0)
     }
     fun validarPorcentaje(porcentaje : Int ) : Boolean{
         return porcentajeAcumulado + porcentaje <=100
     }
-    fun calcularpromedio(): Double{
+    fun calcularpromedio(): Double {
 
         var p = 0.0
 
@@ -141,7 +143,7 @@ class MainActivity : AppCompatActivity() {
             p += n
 
         }
-        return Math.round((p/ listaDeNotas.size) * 1000.0) / 1000.0
+        return Math.round((p / listaDeNotas.size) * 1000.00) / 1000.00
     }
     fun notafinal(): Double {
 
@@ -154,6 +156,6 @@ class MainActivity : AppCompatActivity() {
             notaFinal += (n * listaDePorcentaje[contador]) / 100
             contador++
         }
-        return Math.round(notaFinal * 1000.0) / 1000.0
+        return Math.round(notaFinal * 1000.00) / 1000.00
     }
 }
